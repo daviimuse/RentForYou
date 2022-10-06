@@ -3,20 +3,24 @@ const mysql = require('mysql');
 const cors = require('cors');
 const app = express();
 
-app.use(express.json());
-app.use(cors());
+app.use(express.json())
+app.use(cors())
 
 const db = mysql.createConnection({
     user: 'root',
-    host: '127.0.0.1',
-    password: 'root',
-    database: 'rentforyouDB',
-    port: 3001,
+    host: 'localhost',
+    password: 'password',
+    database: 'rentforyou',
+    // port: 3001,
 });
 
 app.listen(3001, () => {
     console.log('Server started on port 3001.');
 });
+
+app.get('/cors', (req, res) => {
+    res.send('This has CORS enabled 🎈')
+})
 
 db.connect(function(err) {
     console.log('Trying to connect to database...');
@@ -36,8 +40,7 @@ app.post("/register", (req, res) =>{
     const password = req.body.psw
 
     db.query(
-        "INSERT INTO usersLoginInfo (usrn,name,surname,mail,psw) VALUES (?,?,?,?,?)",
-        [username, name, surname, mail, password],
+        "INSERT INTO usersLoginInfo (usrn,name,surname,mail,psw) VALUES (?,?,?,?,?)",[username, name, surname, mail, password],
         (err,result)=>{
         console.log(result);
         console.log(err);

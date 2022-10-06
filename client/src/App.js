@@ -20,9 +20,9 @@ export default function App() {
           <Route path="/About" element={<About />}/>
         </Routes>
       </main>
-      <footer>
+      {/* <footer>
         <Footer />
-      </footer>
+      </footer> */}
     </>
   );
 }

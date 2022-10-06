@@ -49,85 +49,75 @@ function HeaderContainer(){
 }
 
 function RegistrationForm(){
-    const [regUsername, setRegUsername] = useState('')
-    const [regName, setRegName] = useState('')
-    const [regSurname, setRegSurname] = useState('')
-    const [regMail, setRegMail] = useState('')
-    const [regPassword, setRegPassword] = useState('')
+    const [regUsername, setRegUsername] = useState([])
+    const [regName, setRegName] = useState([])
+    const [regSurname, setRegSurname] = useState([])
+    const [regMail, setRegMail] = useState([])
+    const [regPassword, setRegPassword] = useState([])
 
 const register = () =>{
     
-    fetch('https://cors-anywhere.herokuapp.com/http://127.0.0.1:3001/register', {
+    fetch('http://localhost:3001/register' , {
         method: 'POST',
-        body: JSON.stringify({
-            usrn : regUsername.toString(),
-            name: regName.toString(),
-            surname: regSurname.toString(),
-            mail: regMail.toString(),
-            psw: regPassword.toString(),
-        }),
+        mode: 'cors' , 
         headers: {
             'Content-type': 'application/json; charset=UTF-8; Access-Control-Allow-Headers; ',
         },
+        body: JSON.stringify({
+            usrn : regUsername,
+            name: regName,
+            surname: regSurname,
+            mail: regMail,
+            psw: regPassword,
+        }), 
       })
          .then((response) => response.json())
          .then((data) => {console.log(data);})
          .catch((err) => {console.log(err.message);});
 }
-
     return(
     <FormControl isRequired>
         <FormLabel>First name</FormLabel>
-        <Input placeholder='First name' onChange={(e) =>{
-            setRegName(e.target.value);
-            }
+        <Input placeholder='First name' onChange={(e) =>{setRegName(e.target.value);}
         }/>
 
         <FormLabel>Surname</FormLabel>
-        <Input placeholder='Surname'onChange={(e) =>{
-            setRegSurname(e.target.value);
-            }
+        <Input placeholder='Surname' onChange={(e) =>{setRegSurname(e.target.value);}
         }/>
 
         <FormLabel>Username</FormLabel>
-        <Input placeholder='Username' onChange={(e) =>{
-            setRegUsername(e.target.value);
-            }
+        <Input placeholder='Username' onChange={(e) =>{setRegUsername(e.target.value);}
         }/>
 
         <FormLabel>Email</FormLabel>
-        <Input placeholder='Email' onChange={(e) =>{
-            setRegMail(e.target.value);
-            }
+        <Input placeholder='Email' onChange={(e) =>{setRegMail(e.target.value);}
         }/>
 
         <FormLabel>Password</FormLabel>
-        <Input placeholder='Password' onChange={(e) =>{
-            setRegPassword(e.target.value);
-            }
+        <Input placeholder='Password' onChange={(e) =>{setRegPassword(e.target.value);}
         }/>
         <ButtonGroup variant='outline'>
             <Button colorScheme='blue' onClick={register}>Submit</Button>
         </ButtonGroup>
     </FormControl>
-    // <div>
-    //     <label>Name</label>
-    //     <input  onChange={(e) =>{setRegName(e.target.value);}}></input><br/>
+    /* <div>
+        <label>Name</label>
+        <input  onChange={(e) =>{setRegName(e.target.value);}}></input><br/>
 
-    //     <label>Surname</label>
-    //     <input  onChange={(e) =>{setRegSurname(e.target.value);}}></input><br/>
+        <label>Surname</label>
+        <input  onChange={(e) =>{setRegSurname(e.target.value);}}></input><br/>
 
-    //     <label>Username</label>
-    //     <input  onChange={(e) =>{setRegUsername(e.target.value);}}></input><br/>
+        <label>Username</label>
+        <input  onChange={(e) =>{setRegUsername(e.target.value);}}></input><br/>
 
-    //     <label>Mail</label>
-    //     <input  onChange={(e) =>{setRegMail(e.target.value);}}></input><br/>
+        <label>Mail</label>
+        <input  onChange={(e) =>{setRegMail(e.target.value);}}></input><br/>
 
-    //     <label>Password</label>
-    //     <input  onChange={(e) =>{setRegPassword(e.target.value);}}></input><br/>
+        <label>Password</label>
+        <input  onChange={(e) =>{setRegPassword(e.target.value);}}></input><br/>
 
-    //     <button onClick={register()}>Send</button>
-    // </div>
+        <button onClick={register()}>Send</button>
+    </div> */
     );
 }
 
