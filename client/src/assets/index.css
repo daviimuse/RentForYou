@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  background-color: #DFF6FF;
+}
+
+body {
+  min-height: 100vh; 
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  background-color: #DFF6FF;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.navBar{
+  margin: auto;
+  background-color: #DFF6FF;
+  color: #06283D;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 5 1rem;
+}
+
+.site-title{
+  font-size: 1.5rem;
+  font-weight: bolder;
+  gap: 5rem;
+  text-align: center;
+}
+
+.navBar ul{
+  font-weight: bolder;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navBar a{
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navBar li:hover{
+  background-color: #06283D;
+  color: #DFF6FF;
+}
+
+.main-User{
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+}
+
+.contacts-container{
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+}
+
+.item{
+  margin: 20px;
+  display: inline-block;
+  padding: 1rem;
+}
+
+.item-container{
+  width: 25%;
+  float: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer{
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
